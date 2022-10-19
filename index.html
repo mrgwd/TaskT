@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="shortcut icon" href="./media/favicon.png.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="./dist/output.css" />
+    <link rel="stylesheet" href="./src/all.min.css" />
+    <link rel="stylesheet" href="./src/input.css" />
+    <title>TaskT</title>
+  </head>
+  <body>
+    <main class="w-screen h-screen flex flex-col items-center overflow-hidden">
+      <div class="background w-full h-1/4 bg-teal-800"></div>
+      <div class="to-do-con absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4/5 h-4/5 md:w-2/3 lg:w-1/2 bg-white rounded-xl">
+        <div class="heading w-full flex justify-between leading-3 px-3 pt-6 sm:px-6 pb-0 mt-4">
+          <div class=" flex flex-col justify-end leading-3 ">
+            <h1 class="text-6xl md:text-7xl text-teal-800 font-semibold">TaskT</h1>
+            <p class="text-gray-500 ml-2">A to do list app.</p>
+          </div>
+          <div class="hidden data-con sm:flex items-center text-teal-800">
+            <span id="day-number" class="text-4xl md:text-6xl lg:text-7xl">
+              12
+            </span>
+            <div class="flex flex-col sm:leading-tight md:text-xl lg:text-3xl">
+              <span id="day-name">
+                Saturday
+              </span>
+              <span id="month">
+
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="to-do px-3 py-6 sm:px-6">
+          <div class="adding ml-2 pt-6">
+            <div class="flex justify-between items-center pb-1">
+              <input
+                class="w-4/5 outline-none sm:text-2xl text-teal-800"
+                type="text"
+                id="current-task"
+                maxlength="54"
+                placeholder="Add a task..."
+                id=""
+              />
+              <span class="material-symbols-outlined plus-task mr-2 text-gray-400 text-md cursor-pointer hover:text-teal-800 transition duration-300">
+                add
+              </span>
+            </div>
+            <hr />
+          </div>
+          <div class="tasks h-4/5 overflow-y-auto">
+            <div class="proto-task hidden mt-8 ml-2 flex justify-between items-center sm:text-2xl md:text-3xl text-teal-800 transition duration-300 opacity-0">
+              <div class="flex gap-2 cursor-pointer checker transition duration-300">
+                <span class="material-symbols-outlined mt-0.5  transition duration-300">radio_button_unchecked</span>
+                <p class=" sm:text-2xl">test</p>
+              </div>
+              <span id="bin" class="material-symbols-outlined bin mr-2 cursor-pointer">delete</span>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="w-full h-3/4 overflow-hidden">
+        <img
+          src="./media/forest.jpg"
+          class="min-h-full object-cover bg-top"
+          alt=""
+          srcset=""
+        />
+      </div>
+      <a href="http://muhammadr.netlify.app" target="_blank" class="absolute flex bottom-4 left-1/2 -translate-x-1/2 text-white">powered by <img src="./media/muhammadr-logo-white.png" class="ml-2 w-8" alt="" srcset=""></a>
+    </main>
+    <audio src="./media/donesound.mp3"></audio>
+    <script src="./src/main.js"></script>
+  </body>
+</html>
