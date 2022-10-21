@@ -1,7 +1,6 @@
 * {
   font-family: "Josefin Sans", sans-serif;
 }
-
 .heading {
   height: 16.5%;
 }
@@ -22,15 +21,3 @@
 .data-con > div {
   line-height: 25px;
 }
-/*.hl {*/
-/*  position: relative;*/
-/*}*/
-/*.hl::after {*/
-/*  content: "";*/
-/*  height: 2px;*/
-/*  width: 235px;*/
-/*  background-color: gray;*/
-/*  top: 14px;*/
-/*  left: -5px;*/
-/*  position: absolute;*/
-/*}*/

@@ -27,12 +27,30 @@ const days = [
   "Saturday",
 ];
 
+let bins = document.querySelectorAll(".bin");
+let tasksDone = document.querySelectorAll(".checker");
+if(localStorage.length>0){
+  for (i=0;i<localStorage.length;i++){
+    if(localStorage.getItem(Object.keys(localStorage)[i])!==""){
+    let newTask = protoTask.cloneNode(true);
+    newTask.firstElementChild.children[1].innerHTML = Object.keys(localStorage)[i];
+    newTask.classList.remove("hidden");
+    tasks.append(newTask);
+    newTask.classList.replace("opacity-0", "opacity-100");
+    bins = document.querySelectorAll(".bin");
+    tasksDone = document.querySelectorAll(".checker");
+    }
+  }
+}
+taskDone()
+upbins()
 function addTask() {
   if (currentTask.value.length !== 0 && currentTask.value.trim() !== "") {
     let newTask = protoTask.cloneNode(true);
     newTask.firstElementChild.children[1].innerHTML = currentTask.value.trim();
     currentTask.value = "";
     newTask.classList.remove("hidden");
+    window.localStorage.setItem(`${newTask.firstElementChild.children[1].innerHTML}`, newTask.firstElementChild.children[1].innerHTML);
     tasks.append(newTask);
     setTimeout(function () {
       newTask.classList.replace("opacity-0", "opacity-100");
@@ -50,9 +68,16 @@ currentTask.addEventListener("blur", upbins);
 currentTask.addEventListener("blur", taskDone);
 
 function upbins() {
-  let bins = document.querySelectorAll(".bin");
+  bins = document.querySelectorAll(".bin");
   bins.forEach((bin) => {
     bin.addEventListener("click", function () {
+      let tvalue = bin.parentElement.firstElementChild.lastElementChild.innerText
+      localStorage.removeItem(tvalue)
+      // for (i=0;i<Object.keys(localStorage);i++)if(localStorage.getItem(Object.keys(localStorage)[i])===tvalue){
+      //   localStorage.setItem(Object.keys(localStorage)[i],"h");
+      // }
+
+      // window.localStorage.removeItem()
       bin.parentElement.style.opacity = 0;
       setTimeout(function () {
         bin.parentElement.remove();
@@ -62,7 +87,7 @@ function upbins() {
 }
 
 function taskDone() {
-  let tasksDone = document.querySelectorAll(".checker");
+  tasksDone = document.querySelectorAll(".checker");
   tasksDone.forEach((task) => {
     task.addEventListener("click", () => {
       task.classList.toggle("clicked");
@@ -74,8 +99,7 @@ function taskDone() {
         document.querySelector("audio").play();
       } else {
         task.firstElementChild.innerText = "radio_button_unchecked";
-        task.lastElementChild.innerHTML =
-          task.lastElementChild.firstElementChild.innerText;
+        task.lastElementChild.innerHTML = task.lastElementChild.firstElementChild.innerText;
       }
     });
   });
